@@ -1,0 +1,2 @@
+Dumped subgraph2vec sentences for all 9943 graphs in 943.43 sec
+Extract features in 1094.15 sec

@@ -1,0 +1,107 @@
+Size of data before Feature selection: (9943, 530155)
+Number of Malware samples: 6165
+Number of Benign samples: 3778
+------------------------------------------------------
+Size of data after Feature selection: (9943, 140)
+Feature selection done in 2.06 sec
+------------------------------------------------------
+RBF SVM:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.96      0.96      0.96      1101
+        1.0       0.98      0.98      0.98      1882
+
+avg / total       0.97      0.97      0.97      2983
+
+Confusion matrix:
+[[1056   45]
+ [  45 1837]]
+
+Accuracy: 0.970
+ROC AUC: 0.968
+False Positive Rate: 0.041
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 237.78 sec
+Testing done in 0.21 sec
+------------------------------------------------------
+Decision Tree:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.94      0.96      0.95      1101
+        1.0       0.97      0.97      0.97      1882
+
+avg / total       0.96      0.96      0.96      2983
+
+Confusion matrix:
+[[1054   47]
+ [  63 1819]]
+
+Accuracy: 0.963
+ROC AUC: 0.962
+False Positive Rate: 0.043
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 0.84 sec
+Testing done in 0.00 sec
+------------------------------------------------------
+Random Forest:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.96      0.97      0.96      1101
+        1.0       0.98      0.97      0.98      1882
+
+avg / total       0.97      0.97      0.97      2983
+
+Confusion matrix:
+[[1068   33]
+ [  50 1832]]
+
+Accuracy: 0.972
+ROC AUC: 0.972
+False Positive Rate: 0.030
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 69.18 sec
+Testing done in 0.10 sec
+------------------------------------------------------
+Bagging:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.97      0.96      0.96      1101
+        1.0       0.98      0.98      0.98      1882
+
+avg / total       0.97      0.97      0.97      2983
+
+Confusion matrix:
+[[1057   44]
+ [  37 1845]]
+
+Accuracy: 0.973
+ROC AUC: 0.970
+False Positive Rate: 0.040
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 144.64 sec
+Testing done in 0.14 sec
+------------------------------------------------------
+k-Nearest Neighbors:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.95      0.96      0.96      1101
+        1.0       0.97      0.97      0.97      1882
+
+avg / total       0.97      0.97      0.97      2983
+
+Confusion matrix:
+[[1053   48]
+ [  50 1832]]
+
+Accuracy: 0.967
+ROC AUC: 0.965
+False Positive Rate: 0.044
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 12.83 sec
+Testing done in 0.84 sec
+------------------------------------------------------

@@ -1,0 +1,122 @@
+Size of data before Feature selection: (9943, 530155)
+Number of Malware samples: 1765
+Number of Benign samples: 3778
+------------------------------------------------------
+Size of data after Feature selection: (9943, 358)
+Feature selection done in 6.28 sec
+------------------------------------------------------
+RBF SVM:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.96      0.97      0.97      1101
+        0.0       0.97      0.93      0.95      1121
+        1.0       0.91      0.88      0.89       552
+        2.0       0.63      0.80      0.71       209
+
+avg / total       0.93      0.93      0.93      2983
+
+Confusion matrix:
+[[1065    2   33    1]
+ [  10 1045    6   60]
+ [  23    5  487   37]
+ [   8   22   11  168]]
+
+Accuracy: 0.927
+False Positive Rate for each class: [0.02178533 0.01557465 0.02056767 0.03532805]
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 592.64 sec
+Testing done in 1.10 sec
+------------------------------------------------------
+Decision Tree:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.95      0.94      0.94      1101
+        0.0       0.95      0.93      0.94      1121
+        1.0       0.89      0.86      0.88       552
+        2.0       0.61      0.76      0.67       209
+
+avg / total       0.91      0.91      0.91      2983
+
+Confusion matrix:
+[[1036   14   38   13]
+ [  22 1040    9   50]
+ [  26   10  476   40]
+ [   8   31   12  158]]
+
+Accuracy: 0.908
+False Positive Rate for each class: [0.02975558 0.02953813 0.02426985 0.0371305 ]
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 1.22 sec
+Testing done in 0.00 sec
+------------------------------------------------------
+Random Forest:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.96      0.97      0.96      1101
+        0.0       0.95      0.95      0.95      1121
+        1.0       0.90      0.87      0.89       552
+        2.0       0.69      0.72      0.70       209
+
+avg / total       0.93      0.93      0.93      2983
+
+Confusion matrix:
+[[1068    2   31    0]
+ [  16 1062    7   36]
+ [  27   11  481   33]
+ [   6   39   13  151]]
+
+Accuracy: 0.926
+False Positive Rate for each class: [0.02603613 0.02792696 0.02097902 0.02487383]
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 130.40 sec
+Testing done in 0.81 sec
+------------------------------------------------------
+Bagging:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.97      0.96      0.97      1101
+        0.0       0.95      0.96      0.96      1121
+        1.0       0.90      0.93      0.91       552
+        2.0       0.81      0.67      0.73       209
+
+avg / total       0.94      0.94      0.94      2983
+
+Confusion matrix:
+[[1061    9   29    2]
+ [  10 1081    9   21]
+ [  20   10  511   11]
+ [   6   41   21  141]]
+
+Accuracy: 0.937
+False Positive Rate for each class: [0.01912859 0.03222342 0.02426985 0.01225667]
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 443.88 sec
+Testing done in 0.77 sec
+------------------------------------------------------
+k-Nearest Neighbors:
+
+Classification report:
+             precision    recall  f1-score   support
+
+       -1.0       0.95      0.96      0.96      1101
+        0.0       0.94      0.97      0.95      1121
+        1.0       0.91      0.87      0.89       552
+        2.0       0.73      0.65      0.68       209
+
+avg / total       0.92      0.92      0.92      2983
+
+Confusion matrix:
+[[1061    9   28    3]
+ [  13 1082    5   21]
+ [  33   11  481   27]
+ [  11   48   15  135]]
+
+Accuracy: 0.925
+False Positive Rate for each class: [0.03028693 0.03651987 0.01974496 0.018385  ]
+Hyperparameter tuning (with Grid search & 5-fold CV) done in 14.83 sec
+Testing done in 0.86 sec
+------------------------------------------------------
