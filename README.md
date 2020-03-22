@@ -1,1 +1,1 @@
-# PSI Rooted-subgraph-based Malware Classification
+# PSI Rooted subgraph-based Malware Classification
