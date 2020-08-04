@@ -14,6 +14,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, BaggingClassifier
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC, SVC
+from sklearn.preprocessing import Normalizer
 
 
 g = open('log/result.txt', mode='w+')
@@ -24,20 +25,26 @@ g.write('Size of data before Feature selection: ' + str(X.shape) + '\n')
 g.write('Number of Malware samples: ' + str(X[y == 1].shape[0]) + '\n')
 g.write('Number of Benign samples: ' + str(X[y == -1].shape[0]) + '\n')
 
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=.3, random_state=42)
+print(X_train.shape, X_test.shape)
+
 # Feature selection
 tick = time.time()
 g.write('-' * 54 + '\n')
 model = SelectFromModel(
-    LinearSVC(penalty="l1", dual=False, random_state=42).fit(X, y), prefit=True)
-X = model.transform(X)
-g.write('Size of data after Feature selection: ' + str(X.shape) + '\n')
+    LinearSVC(penalty="l1", dual=False, random_state=42).fit(X_train, y_train), prefit=True)
+X_train = model.transform(X_train)
+X_test = model.transform(X_test)
+g.write('Size of training data after Feature selection: ' + str(X_train.shape) + '\n')
 g.write('Feature selection done in %0.2f sec\n' % (time.time() - tick))
 g.write('-' * 54 + '\n')
 
-# Split data
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=.3, random_state=42)
-
+scaler = Normalizer()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+print(X_train.shape, X_test.shape)
 
 names = ["RBF SVM", "Decision Tree", "Random Forest",
          "Bagging", "k-Nearest Neighbors"]
@@ -45,9 +52,9 @@ names = ["RBF SVM", "Decision Tree", "Random Forest",
 classifiers = [
     SVC(kernel='rbf', class_weight='balanced'),
     DecisionTreeClassifier(random_state=42, class_weight='balanced'),
-    RandomForestClassifier(random_state=42, class_weight='balanced'),
-    BaggingClassifier(random_state=42),
-    KNeighborsClassifier()
+    RandomForestClassifier(random_state=42, class_weight='balanced', n_jobs=-1),
+    BaggingClassifier(random_state=42, n_jobs=-1),
+    KNeighborsClassifier(n_jobs=-1)
 ]
 
 hyperparam = [
